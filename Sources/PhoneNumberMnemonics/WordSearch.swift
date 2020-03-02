@@ -11,7 +11,13 @@ import Foundation
 // possible letters that could be in place of that character
 // For instance, 234 becomes [["A", "B", "C"], ["D", "E", "F"], ["G", "H", "I"]]
 public func letters(for phoneNumber: String) -> [[String]] {
-    // YOU FILL IN HERE
+   var numToLetters = [[String]]()
+   let numArrayChars = Array(phoneNumber)
+   let numArrayInts = numArrayChars.map{Int(String($0))}
+   let letterRef = [["0"],["1"],["A","B","C"],["D","E","F"],["G","H","I"],["J","K","L"],["M","N","O"],["P","Q","R","S"],["T","U","V"],["W","X","Y","Z"]]
+   numToLetters = numArrayInts.map{ letterRef[$0!] }
+   
+   return numToLetters
 }
 
 // Finds all of the ordered permutations of a given
@@ -21,20 +27,27 @@ public func letters(for phoneNumber: String) -> [[String]] {
 // For instance permuations(of: [["a", "b"], ["c"], ["d", "e"]]) will return
 // ["acd", "ace" "bcd", "bce"]
 public func permutations(of arrays: [[String]]) -> [String] {
-    // YOU FILL IN HERE
+   var perms = [String]()
+   
+   return perms
 }
 
 // Finds all of the possible strings of characters that a phone number
 // can potentially represent
 // Uses letters(for:) and permutations(of:) to do this
 public func possibles(for phoneNumber: String) -> [String] {
-    // YOU FILL IN HERE
+   var possibleStrings = [String]()
+   possibleStrings = permutations(of: letters(for: phoneNumber)).map{
+      String($0)
+   }
+   return possibleStrings
 }
 
 // Returns all of the words in a given *string* from the wordlist.txt file
 // using only words in the word list of minimum length ofMinLength
 public func wordsInString(_ string: String, ofMinLength length: UInt) -> [String] {
     // YOU FILL IN HERE
+   return["test"]
 }
 
 // Returns all possibles strings of characters that a phone number
@@ -42,6 +55,7 @@ public func wordsInString(_ string: String, ofMinLength length: UInt) -> [String
 // greater than or equal to ofMinLength characters
 public func possiblesWithWholeWords(ofMinLength length: UInt, for phoneNumber: String) -> [String] {
     // YOU FILL IN HERE
+   return["test"]
 }
 
 // Returns the phone number mnemonics that have the most words present in words.txt
@@ -51,10 +65,12 @@ public func possiblesWithWholeWords(ofMinLength length: UInt, for phoneNumber: S
 // that contain more than three words
 public func mostWords(for phoneNumber: String) -> [String] {
     // YOU FILL IN HERE
+   return["test"]
 }
 
 // Returns the phone number mnemonics with the longest words from words.txt
 // If more than one word is tied for the longest, returns all of them
 public func longestWords(for phoneNumber: String) -> [String] {
     // YOU FILL IN HERE
+   return["test"]
 }
