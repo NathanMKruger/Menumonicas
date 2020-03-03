@@ -20,16 +20,56 @@ public func letters(for phoneNumber: String) -> [[String]] {
    return numToLetters
 }
 
+public func buildPerm(arrays: [[String]], tempPerm: String, index: Int)->String{
+   
+   var tempArrays = arrays
+   var newPerm = tempArrays.removeFirst()
+   var newTemp = tempPerm
+   newTemp = newPerm[index]
+   var newIndex = index + 1
+   if(arrays.count != 0){
+      var tempPerm = buildPerm(arrays: tempArrays, tempPerm: newPerm[0], index: newIndex)
+   }
+   return tempPerm
+}
+
+public func tryThis(arrays: [[String]], perms: [String], index: Int) ->[String]{
+   var newPerms = perms
+   var perm = String(arrays.flatMap{$0[index]})
+   newPerms.append(perm)
+   print("PERM UPDATE:  ", perm)
+   var allPerms = tryThis(arrays: arrays, perms: newPerms, index: index+1)
+   return allPerms
+}
+
 // Finds all of the ordered permutations of a given
 // array of arrays of strings
 // combining each choice in one
 // array with each choice in the next array, and so on to produce strings
 // For instance permuations(of: [["a", "b"], ["c"], ["d", "e"]]) will return
-// ["acd", "ace" "bcd", "bce"]
+// ["acd", "ace", "bce", "bce"]
 public func permutations(of arrays: [[String]]) -> [String] {
-   var perms = [String]()
+   var allPerms = [String]()
    
-   return perms
+   //[["a", "b"], ["c"], ["d", "e"]]
+   var perm = String(arrays.flatMap{$0[0]})
+   allPerms.append(perm)
+
+   
+   var s = arrays.reduce([]) { $0 + $1}
+   print("WOWOWOW:   ", s)
+   //var stringPerm = buildPerm(arrays: arrays, tempPerm: "", index: 0)
+   //let chunked = Array(stringPerm).chunked(into: arrays[0][0].count)
+   //allPerms = chunked
+   return allPerms
+}
+//CHUNKED: https://www.hackingwithswift.com/example-code/language/how-to-split-an-array-into-chunks
+extension Array {
+    func chunked(into size: Int) -> [[Element]] {
+        return stride(from: 0, to: count, by: size).map {
+            Array(self[$0 ..< Swift.min($0 + size, count)])
+        }
+    }
 }
 
 // Finds all of the possible strings of characters that a phone number
@@ -46,8 +86,10 @@ public func possibles(for phoneNumber: String) -> [String] {
 // Returns all of the words in a given *string* from the wordlist.txt file
 // using only words in the word list of minimum length ofMinLength
 public func wordsInString(_ string: String, ofMinLength length: UInt) -> [String] {
-    // YOU FILL IN HERE
-   return["test"]
+   //var myWord: Word =
+   //myWord.loadWords()
+   //var validWords = string.filter()
+   return ["Test"]
 }
 
 // Returns all possibles strings of characters that a phone number
@@ -71,6 +113,10 @@ public func mostWords(for phoneNumber: String) -> [String] {
 // Returns the phone number mnemonics with the longest words from words.txt
 // If more than one word is tied for the longest, returns all of them
 public func longestWords(for phoneNumber: String) -> [String] {
-    // YOU FILL IN HERE
-   return["test"]
+    var words = possiblesWithWholeWords(ofMinLength: 1, for: phoneNumber)
+   var longestLength = 0;
+   var longestWords = words.filter{}
+   
+   //longestWords = possibles(for: phoneNumber)
+   return ["Test"]
 }

@@ -2,6 +2,10 @@ import PhoneNumberMnemonics
 
 print("Enter phone number:")
 if let phoneNumber = readLine() {
+   print("LETTTERS:")
+   print(letters(for: phoneNumber))
+   print("PERMUTATIONS:")
+   print(permutations(of: letters(for: phoneNumber)))
     print("All possible mnemonics:")
     print(possiblesWithWholeWords(ofMinLength: 1, for: phoneNumber))
     print("Mnemonics with the most number of valid words in them:")
