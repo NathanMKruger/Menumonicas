@@ -49,19 +49,36 @@ public func tryThis(arrays: [[String]], perms: [String], index: Int) ->[String]{
 // For instance permuations(of: [["a", "b"], ["c"], ["d", "e"]]) will return
 // ["acd", "ace", "bce", "bce"]
 public func permutations(of arrays: [[String]]) -> [String] {
+    //var allPerms = [[String]]()
+    //[["a", "b"], ["c", "d"]]
+   // should produce .. ["ac", "ad", "bc", "bd"]
+    //total = array of arrays , inner = array of strings
+   /*
+   allPerms = arrays.reduce([]) { total, inner in
+      var perm = [String]()
+      print("total: ", total);
+      
+      return total + [inner].map{
+         perm.append(String($0.flatMap{$0}))
+         print("PERM:", perm)
+         return perm
+      }
+   }
+*/
    var allPerms = [String]()
-   
-   //[["a", "b"], ["c"], ["d", "e"]]
-   var perm = String(arrays.flatMap{$0[0]})
-   allPerms.append(perm)
-
-   
-   var s = arrays.reduce([]) { $0 + $1}
-   print("WOWOWOW:   ", s)
-   //var stringPerm = buildPerm(arrays: arrays, tempPerm: "", index: 0)
-   //let chunked = Array(stringPerm).chunked(into: arrays[0][0].count)
-   //allPerms = chunked
-   return allPerms
+   allPerms = arrays.reduce([]) { total, inner in
+   var perm = ""
+   print("total: ", total);
+   var index = 0
+   var newTotal = total + inner.flatMap{
+      perm.append($0)
+      print("PERM:", perm)
+      index+=1
+      return perm
+   }
+   return newTotal
+   }
+   return allPerms.flatMap{$0}
 }
 //CHUNKED: https://www.hackingwithswift.com/example-code/language/how-to-split-an-array-into-chunks
 extension Array {
@@ -115,7 +132,7 @@ public func mostWords(for phoneNumber: String) -> [String] {
 public func longestWords(for phoneNumber: String) -> [String] {
     var words = possiblesWithWholeWords(ofMinLength: 1, for: phoneNumber)
    var longestLength = 0;
-   var longestWords = words.filter{}
+   //var longestWords = words.filter{}
    
    //longestWords = possibles(for: phoneNumber)
    return ["Test"]
