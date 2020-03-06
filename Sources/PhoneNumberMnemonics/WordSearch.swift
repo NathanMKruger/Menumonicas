@@ -103,9 +103,9 @@ public func possibles(for phoneNumber: String) -> [String] {
 // Returns all of the words in a given *string* from the wordlist.txt file
 // using only words in the word list of minimum length ofMinLength
 public func wordsInString(_ string: String, ofMinLength length: UInt) -> [String] {
-   //var myWord: Word =
-   //myWord.loadWords()
-   //var validWords = string.filter()
+   var myWord = Word(wordList: [])
+   myWord.loadWords()
+   print(myWord.wordList)
    return ["Test"]
 }
 

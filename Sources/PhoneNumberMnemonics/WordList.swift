@@ -9,9 +9,15 @@ import Foundation
 struct Word {
     //var wordList: [String] = []
     var wordList : [String]// = tempWords.components(separatedBy: "\n")
+
    mutating func loadWords() {
+      let fileManager = FileManager.default
+      var path = fileManager.currentDirectoryPath
+      path = path.replacingOccurrences(of: "DerivedData/PhoneNumberMnemonics/Build/Products/Debug", with: "")//climb up directory
+      print("PATH:",path)
+
         do {
-            let tempWords = try String(contentsOfFile: "words.txt")
+            let tempWords = try String(contentsOfFile: path+"words.txt")
          self.wordList = tempWords.components(separatedBy: "\n")
         }   catch {
             print(error)
