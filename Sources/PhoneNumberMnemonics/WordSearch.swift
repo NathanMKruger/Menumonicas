@@ -70,7 +70,7 @@ public func permutations(of arrays: [[String]]) -> [String] {
    var perm = ""
    print("total: ", total);
    var index = 0
-   var newTotal = total + inner.flatMap{
+    let newTotal = total + inner.flatMap{
       perm.append($0)
       print("PERM:", perm)
       index+=1
@@ -78,7 +78,7 @@ public func permutations(of arrays: [[String]]) -> [String] {
    }
    return newTotal
    }
-   return allPerms.flatMap{$0}
+    return allPerms.flatMap{$0}
 }
 //CHUNKED: https://www.hackingwithswift.com/example-code/language/how-to-split-an-array-into-chunks
 extension Array {
@@ -124,16 +124,17 @@ public func possiblesWithWholeWords(ofMinLength length: UInt, for phoneNumber: S
 // that contain more than three words
 public func mostWords(for phoneNumber: String) -> [String] {
     // YOU FILL IN HERE
+    
    return["test"]
 }
 
 // Returns the phone number mnemonics with the longest words from words.txt
 // If more than one word is tied for the longest, returns all of them
 public func longestWords(for phoneNumber: String) -> [String] {
-    var words = possiblesWithWholeWords(ofMinLength: 1, for: phoneNumber)
-   var longestLength = 0;
-   //var longestWords = words.filter{}
+    let words = possiblesWithWholeWords(ofMinLength: 1, for: phoneNumber)
+    _ = 0;
+    _ = words.max(by: {$1.count > $0.count})
    
    //longestWords = possibles(for: phoneNumber)
-   return ["Test"]
+    return words;
 }
