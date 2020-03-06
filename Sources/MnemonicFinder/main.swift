@@ -6,6 +6,8 @@ if let phoneNumber = readLine() {
    print(letters(for: phoneNumber))
    print("PERMUTATIONS:")
    print(permutations(of: letters(for: phoneNumber)))
+   print("WORDS IN STRING:")
+   print(wordsInString("ORANGE", ofMinLength: 0))
     print("All possible mnemonics:")
     print(possiblesWithWholeWords(ofMinLength: 1, for: phoneNumber))
     print("Mnemonics with the most number of valid words in them:")

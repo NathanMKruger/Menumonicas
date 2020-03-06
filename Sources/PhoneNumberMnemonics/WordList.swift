@@ -14,8 +14,6 @@ struct Word {
       let fileManager = FileManager.default
       var path = fileManager.currentDirectoryPath
       path = path.replacingOccurrences(of: "DerivedData/PhoneNumberMnemonics/Build/Products/Debug", with: "")//climb up directory
-      print("PATH:",path)
-
         do {
             let tempWords = try String(contentsOfFile: path+"words.txt")
          self.wordList = tempWords.components(separatedBy: "\n")

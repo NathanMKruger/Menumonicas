@@ -105,8 +105,10 @@ public func possibles(for phoneNumber: String) -> [String] {
 public func wordsInString(_ string: String, ofMinLength length: UInt) -> [String] {
    var myWord = Word(wordList: [])
    myWord.loadWords()
-   print(myWord.wordList)
-   return ["Test"]
+   var validWords = myWord.wordList.filter{
+      string.contains($0.uppercased()) && ($0.count >= length)
+   }
+   return validWords
 }
 
 // Returns all possibles strings of characters that a phone number
